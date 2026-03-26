@@ -1,6 +1,6 @@
 # Skill Authoring Guide
 
-How to create and contribute new skills for the strategy project template.
+How to create and contribute new skills for the DS Strategy Stack.
 
 ---
 

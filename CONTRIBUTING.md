@@ -1,4 +1,4 @@
-# Contributing to diffsProjectStack
+# Contributing to DS Strategy Stack
 
 Thank you for your interest in contributing! This guide covers everything you need to get started.
 
@@ -17,8 +17,8 @@ Thank you for your interest in contributing! This guide covers everything you ne
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-org/diffsProjectStack.git
-   cd diffsProjectStack
+   git clone https://github.com/DiffTheEnder/DSS-Claude-Stack.git
+   cd DSS-Claude-Stack
    ```
 
 2. **Install dashboard dependencies:**

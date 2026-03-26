@@ -1,6 +1,6 @@
-# Strategy Project Dashboard Stack
+# DS Strategy Stack (Claude Code)
 
-> An open-source, AI-powered strategy project template for Claude Code. Clone it, run `/onboard`, and start doing real strategy work — market entry, growth strategy, competitive analysis, or any hypothesis-driven project.
+> An open-source, AI-powered strategy and project management stack for Claude Code. Clone it, run `/onboard`, and start doing real work — market entry, competitor research, internal implementations, due diligence, or any corporate project that needs structured thinking.
 
 [![MIT Licence](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE)
 
@@ -25,7 +25,7 @@ No boilerplate. No blank-page problem. Clone, configure, and go.
 
 ```bash
 # 1. Clone the template
-git clone https://github.com/msem006/strategyProjectTemplate.git my-project
+git clone https://github.com/DiffTheEnder/DSS-Claude-Stack.git my-project
 cd my-project
 
 # 2. Open in Claude Code

@@ -1,4 +1,4 @@
-# Getting Started — Your First Strategy Project
+# Getting Started — Your First Project
 
 This guide walks you through everything from scratch. No coding experience needed.
 
@@ -6,7 +6,7 @@ This guide walks you through everything from scratch. No coding experience neede
 
 ## What Is This?
 
-This is a **strategy project template** — a pre-built workspace that helps you run strategy projects (like market research, competitive analysis, or deciding whether to enter a new market).
+The **DS Strategy Stack** is a pre-built workspace that helps you run corporate projects — market research, competitor analysis, internal implementations, vendor evaluations, due diligence, or any project that needs structured thinking and decision-making.
 
 It works with **Claude Code**, an AI assistant that lives in your terminal (the text-based interface on your computer). You talk to Claude, and it helps you:
 - Organise your research into structured files
@@ -86,7 +86,7 @@ GitHub is where your project lives online. You'll need it for:
 2. Navigate to where you want your project (e.g., `cd ~/Documents`)
 3. Run this command:
    ```
-   git clone https://github.com/DiffTheEnder/strategyProjectTemplate.git my-strategy-project
+   git clone https://github.com/DiffTheEnder/DSS-Claude-Stack.git my-strategy-project
    ```
    (Replace `my-strategy-project` with whatever you want to call your folder)
 4. Move into the folder:

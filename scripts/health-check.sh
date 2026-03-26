@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # health-check.sh
-# Lightweight CLI health check for the strategy project template.
+# Lightweight CLI health check for the DS Strategy Stack.
 # Mirrors the checks in skills/health-check/SKILL.md.
 # Uses Australian English throughout.
 
