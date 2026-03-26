@@ -1,0 +1,35 @@
+{
+  "templateVersion": "1.0.0",
+  "projectName": "Meridian Analytics — Observability",
+  "projectSlug": "meridian-observability",
+  "oneLineDescription": "Evaluate entry into the developer observability market targeting mid-market SaaS companies underserved by enterprise tools",
+  "goal": "Validate product-market fit with 15 customer interviews and a go/no-go recommendation by 30 April 2026",
+  "team": "Priya (strategy lead), Marcus (product), Zara (research)",
+  "scope": "Developer observability for mid-market SaaS (200-2000 employees). Focus on APM, log management, and distributed tracing",
+  "outOfScope": "Infrastructure monitoring, security observability, enterprise (>2000 employees), SMB (<200 employees)",
+  "strategicHypothesis": "Mid-market SaaS companies will pay $15-25k/year for an observability platform that offers 80% of enterprise features at 40% of the cost, with a self-serve onboarding experience that doesn't require a dedicated SRE team",
+  "icpDescription": "VP Engineering or Head of Platform at a SaaS company with 200-2000 employees, currently using a mix of open-source tools and feeling the pain of fragmented observability",
+  "entityType": "prospect",
+  "entityTypePlural": "prospects",
+  "pipelineSourceOfTruth": "data/entities.csv",
+  "dashboardUrl": "https://meridian-observability.vercel.app",
+  "modules": {
+    "discovery": true,
+    "pipeline": true,
+    "dashboard": true
+  },
+  "scoringDimensions": [
+    "White Space",
+    "Urgency",
+    "Feasibility",
+    "Defensibility",
+    "Revenue Potential",
+    "Time to Market"
+  ],
+  "killConditions": [
+    "Fewer than 4/15 prospects rank observability fragmentation in their top 3 pain points",
+    "No WTP signal above $12k/year after 10 interviews",
+    "3+ prospects say they'd build in-house rather than buy",
+    "Datadog launches a mid-market tier before our target launch date"
+  ]
+}

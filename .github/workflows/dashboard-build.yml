@@ -1,0 +1,27 @@
+name: Dashboard Build
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies and build dashboard data
+        run: cd dashboard && npm install && node build-data.js
+
+      - name: Validate placeholders in built JSON
+        run: |
+          # Check only the generated dashboard JSON files for leftover placeholders
+          chmod +x scripts/validate-placeholders.sh
+          scripts/validate-placeholders.sh dashboard/data

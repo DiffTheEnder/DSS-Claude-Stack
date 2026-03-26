@@ -1,71 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Overview — {{PROJECT_NAME}}</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif&family=Syne:wght@600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            cream: {
-              50: "#F7F4EF",
-              100: "#f5f2ed",
-              200: "#efe9e0",
-              300: "#e8e0d4",
-              400: "#E3DDD4",
-              white: "#FEFCF9",
-            },
-            warmgray: {
-              100: "#f0ebe3",
-              300: "#d4c8b8",
-              400: "#9B9183",
-              500: "#7D7265",
-              600: "#5C5044",
-              700: "#4a3c2e",
-              900: "#2C2418",
-            },
-            warmdark: {
-              950: "#1A1612",
-              900: "#242018",
-              800: "#2C2720",
-              700: "#3A3530",
-              600: "#4a3f32",
-            },
-            accent: {
-              50: "#F2F7F5",
-              100: "#E3EEEA",
-              200: "#C5D9D4",
-              400: "#2DB892",
-              500: "#0E9C82",
-              600: "#0E7C6B",
-              700: "#0B6358",
-              800: "#084C44",
-              900: "#053B35",
-            },
-          },
-          fontFamily: {
-            sans: ['DM Sans', 'system-ui', 'sans-serif'],
-            serif: ['Instrument Serif', 'Georgia', 'serif'],
-            syne: ['Syne', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body class="bg-cream-50 dark:bg-warmdark-950 text-warmgray-900 dark:text-warmgray-100 min-h-screen flex">
+// Shared sidebar component — injected into all dashboard pages
+// Usage: include this script, then call renderSidebar() before app.js
 
-  <!-- Sidebar -->
-  <aside id="sidebar" class="sidebar flex flex-col shrink-0">
+function renderSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  if (!sidebar) return;
+
+  sidebar.innerHTML = `
     <a href="index.html" class="sidebar-brand" style="text-decoration:none;color:inherit">
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
         <rect x="2" y="2" width="28" height="28" rx="8" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
@@ -118,31 +58,5 @@
         Toggle Theme
       </button>
     </div>
-  </aside>
-
-  <!-- Main Content -->
-  <main class="flex-1 ml-[240px] p-8">
-    <header class="mb-8">
-      <h1 class="font-serif text-3xl mb-2">Project Overview</h1>
-      <p id="build-time" class="text-warmgray-400 text-sm"></p>
-    </header>
-
-    <!-- Status Blurb -->
-    <section class="bg-white dark:bg-warmdark-800 rounded-xl border border-cream-300 dark:border-warmdark-700 p-6 mb-6">
-      <h2 class="font-syne text-sm font-bold uppercase tracking-wider text-warmgray-400 mb-3">Current Status</h2>
-      <p id="status-blurb" class="text-base leading-relaxed"></p>
-    </section>
-
-    <!-- Kill Conditions -->
-    <section class="mb-8">
-      <h2 class="font-syne text-sm font-bold uppercase tracking-wider text-warmgray-400 mb-4">Kill Conditions</h2>
-      <div id="kc-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <!-- Populated by JS -->
-      </div>
-    </section>
-  </main>
-
-  <script src="js/app.js"></script>
-  <script src="js/overview.js"></script>
-</body>
-</html>
+  `;
+}

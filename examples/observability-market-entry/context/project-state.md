@@ -1,0 +1,73 @@
+# Project State — Meridian Observability
+
+**Snapshot date:** 26 March 2026
+**Phase:** 2 — Research (discovery starting)
+**Sessions completed:** 6
+**Days since kickoff:** 16
+
+## Progress Summary
+
+### What is done
+
+- Project scoping and configuration complete
+- Strategic hypothesis defined and documented
+- ICP defined: VP Engineering / Head of Platform at mid-market SaaS (200-2000 employees)
+- 3 foundational decisions locked (APM + logs first; self-serve onboarding; OTel-native)
+- 3 strategic options scored — Full-Stack Lite (Option A) recommended at 24/30
+- Competitor teardowns complete for Datadog and Honeycomb
+- Prospect pipeline built: 8 prospects across 3 tiers
+- 1 discovery call completed (CloudStack AI) with strong signal
+- 5 outreach touchpoints made
+- Kill condition tracker initialised — all 4 conditions passing or untested after 1 interview
+
+### What is in progress
+
+- Nexus Payments call booked for 25 March — prep underway
+- Pulse Health — scheduling discovery call after positive response to investor intro
+- Orbit CRM — awaiting response to LinkedIn outreach (follow-up due 22 March, now overdue)
+- Grafana Cloud and New Relic competitor teardowns not yet started
+
+### What is next
+
+- Complete Nexus Payments discovery call (25 March)
+- Follow up on overdue Orbit CRM outreach
+- Schedule and complete Pulse Health discovery call
+- Begin teardowns for Grafana Cloud and New Relic
+- Start outreach to Tier 2 prospects (DataForge, Streamline HR)
+- After 5 completed interviews: first pattern analysis and kill condition review
+
+## Pipeline Summary
+
+| Status | Count | Prospects |
+|--------|-------|-----------|
+| Meeting completed | 1 | CloudStack AI |
+| Meeting booked | 1 | Nexus Payments |
+| Engaged | 1 | Pulse Health |
+| Contacted | 2 | Orbit CRM, Vantage Analytics |
+| Not started | 2 | DataForge, Streamline HR |
+| Dead | 1 | CodeBridge (below ICP threshold) |
+| **Total** | **8** | |
+
+## Kill Condition Status
+
+| # | Condition | Status | Confidence |
+|---|-----------|--------|------------|
+| 1 | Fragmentation not in top 3 pain points (threshold: <4/15) | EARLY SIGNAL — 1/1 confirmed | Very low (n=1) |
+| 2 | No WTP above $12k/yr after 10 interviews | UNTESTED — $15-20k signal from 1 prospect | Very low (n=1) |
+| 3 | 3+ prospects prefer build over buy | PASSING — 0/1 prefer building | Very low (n=1) |
+| 4 | Datadog launches mid-market tier | UNTESTED — no public signal | N/A |
+
+## Risks and Concerns
+
+1. **Sample size is dangerously small** — All positive signals are based on a single interview. We need 5+ interviews before drawing any conclusions.
+2. **Orbit CRM outreach is stalling** — LinkedIn message sent 15 March with no response. May need to find an alternative channel or warm intro.
+3. **Grafana Cloud teardown is overdue** — This is our most important adjacent competitor and we have not yet completed the teardown.
+4. **Team bandwidth** — Zara is handling both research and outreach. If interview volume increases, we may need to split responsibilities.
+
+## Key Metrics
+
+- Interviews completed: 1 / 15 target (7%)
+- Outreach response rate: 3/5 (60%) — early and likely to regress to mean
+- Kill conditions passing: 3/4 (1 untested, not yet triggered)
+- Days remaining to go/no-go deadline (30 April): 35
+- Competitor teardowns complete: 2/5

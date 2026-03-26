@@ -1,0 +1,71 @@
+name: Template Lint
+
+on:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate SKILL.md frontmatter
+        run: |
+          # Every SKILL.md must have YAML frontmatter with 'name' and 'description' fields
+          EXIT_CODE=0
+          for skill_file in skills/*/SKILL.md; do
+            if [ ! -f "$skill_file" ]; then
+              continue
+            fi
+
+            # Check the file starts with ---
+            FIRST_LINE=$(head -n 1 "$skill_file")
+            if [ "$FIRST_LINE" != "---" ]; then
+              echo "FAIL: $skill_file — missing frontmatter (no opening ---)"
+              EXIT_CODE=1
+              continue
+            fi
+
+            # Extract frontmatter (between first and second ---)
+            FRONTMATTER=$(sed -n '2,/^---$/p' "$skill_file" | head -n -1)
+
+            # Check for 'name:' field
+            if ! echo "$FRONTMATTER" | grep -q '^name:'; then
+              echo "FAIL: $skill_file — frontmatter missing 'name' field"
+              EXIT_CODE=1
+            fi
+
+            # Check for 'description:' field
+            if ! echo "$FRONTMATTER" | grep -q '^description:'; then
+              echo "FAIL: $skill_file — frontmatter missing 'description' field"
+              EXIT_CODE=1
+            fi
+
+            if [ "$EXIT_CODE" -eq 0 ]; then
+              echo "PASS: $skill_file"
+            fi
+          done
+
+          exit $EXIT_CODE
+
+      - name: Check markdown for unclosed code blocks
+        run: |
+          # Verify all markdown files have balanced ``` fences
+          EXIT_CODE=0
+          while IFS= read -r md_file; do
+            # Count lines that start with ``` (opening or closing fence)
+            FENCE_COUNT=$(grep -c '^ *```' "$md_file" 2>/dev/null || echo 0)
+            # An odd count means an unclosed code block
+            if [ $((FENCE_COUNT % 2)) -ne 0 ]; then
+              echo "FAIL: $md_file — unclosed code block ($FENCE_COUNT fence markers, expected even)"
+              EXIT_CODE=1
+            fi
+          done < <(find . -name "*.md" -not -path "*/node_modules/*" -not -path "*/.git/*")
+
+          if [ "$EXIT_CODE" -eq 0 ]; then
+            echo "PASS: All markdown files have balanced code fences."
+          fi
+
+          exit $EXIT_CODE

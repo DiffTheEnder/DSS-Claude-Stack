@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Hub — {{PROJECT_NAME}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif&family=Syne:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: {
+        colors: {
+          cream: { 50:"#F7F4EF",100:"#f5f2ed",200:"#efe9e0",300:"#e8e0d4",400:"#E3DDD4",white:"#FEFCF9" },
+          warmgray: { 100:"#f0ebe3",300:"#d4c8b8",400:"#9B9183",500:"#7D7265",600:"#5C5044",700:"#4a3c2e",900:"#2C2418" },
+          warmdark: { 950:"#1A1612",900:"#242018",800:"#2C2720",700:"#3A3530",600:"#4a3f32" },
+          accent: { 50:"#F2F7F5",100:"#E3EEEA",200:"#C5D9D4",400:"#2DB892",500:"#0E9C82",600:"#0E7C6B",700:"#0B6358",800:"#084C44",900:"#053B35" },
+        },
+        fontFamily: { sans:['DM Sans','system-ui','sans-serif'], serif:['Instrument Serif','Georgia','serif'], syne:['Syne','sans-serif'] }
+      }}
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-cream-50 dark:bg-warmdark-950 text-warmgray-900 dark:text-warmgray-100 min-h-screen flex">
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar flex flex-col shrink-0">
+    <a href="index.html" class="sidebar-brand" style="text-decoration:none;color:inherit">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect x="2" y="2" width="28" height="28" rx="8" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+        <circle cx="16" cy="16" r="3" stroke="#2DB892" stroke-width="1.5"/>
+        <line x1="16" y1="6" x2="16" y2="12" stroke="#2DB892" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="20" x2="16" y2="26" stroke="#2DB892" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="6" y1="16" x2="12" y2="16" stroke="#2DB892" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="20" y1="16" x2="26" y2="16" stroke="#2DB892" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <div class="sidebar-title">{{PROJECT_NAME}}</div>
+        <div class="sidebar-subtitle">Strategy Dashboard</div>
+      </div>
+    </a>
+    <nav class="sidebar-nav">
+      <div class="sidebar-label">Core</div>
+      <a href="index.html" class="nav-link"><svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg>Overview</a>
+      <a href="pipeline.html" class="nav-link"><svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 4h12M2 8h8M2 12h5"/></svg>Pipeline</a>
+      <a href="competitors.html" class="nav-link"><svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>Competitors</a>
+      <div class="sidebar-label" style="margin-top: 0.75rem">Strategy</div>
+      <a href="decisions.html" class="nav-link"><svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 2v12M2 8h12"/><circle cx="8" cy="8" r="6"/></svg>Decisions</a>
+      <a href="scoring.html" class="nav-link"><svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 13l3-4 3 2 4-6"/></svg>Scoring</a>
+      <a href="timeline.html" class="nav-link"><svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 3h12M2 8h12M2 13h12"/><circle cx="5" cy="3" r="1" fill="currentColor"/><circle cx="10" cy="8" r="1" fill="currentColor"/><circle cx="7" cy="13" r="1" fill="currentColor"/></svg>Timeline</a>
+      <a href="research.html" class="nav-link"><svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="7" cy="7" r="5"/><path d="M11 11l3 3"/></svg>Research Hub</a>
+    </nav>
+    <div style="padding: 0.75rem; border-top: 1px solid rgba(255,248,240,0.06);">
+      <button id="dark-toggle" class="nav-link" style="width:100%; border:none; background:none; cursor:pointer">
+        <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 1a7 7 0 100 14 5 5 0 010-10"/></svg>Toggle Theme
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 ml-[240px] p-8">
+    <header class="mb-8">
+      <h1 class="font-serif text-3xl mb-2">Research Hub</h1>
+      <p class="text-warmgray-400 text-sm">Index of all research files</p>
+    </header>
+
+    <!-- Summary cards -->
+    <div id="research-summary" class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Research files table -->
+    <section class="bg-white dark:bg-warmdark-800 rounded-xl border border-cream-300 dark:border-warmdark-700 overflow-x-auto mb-6">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-cream-300 dark:border-warmdark-700">
+            <th class="text-left p-3 font-semibold">File</th>
+            <th class="text-left p-3 font-semibold">Entity</th>
+            <th class="text-left p-3 font-semibold">Type</th>
+            <th class="text-left p-3 font-semibold">Last Modified</th>
+            <th class="text-left p-3 font-semibold">Evidence Grades</th>
+          </tr>
+        </thead>
+        <tbody id="research-body">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Research gaps -->
+    <section id="research-gaps" class="hidden">
+      <h2 class="font-syne text-sm font-bold uppercase tracking-wider text-warmgray-400 mb-4">Research Gaps</h2>
+      <div id="gaps-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script>
+    // Research Hub page logic — loads research.json
+    document.addEventListener('DOMContentLoaded', async () => {
+      initDarkMode();
+      initSidebar();
+      initNav();
+
+      try {
+        const data = await loadJSON('research.json');
+        const summaryEl = document.getElementById('research-summary');
+        const tbody = document.getElementById('research-body');
+        const gapsSection = document.getElementById('research-gaps');
+        const gapsGrid = document.getElementById('gaps-grid');
+
+        const files = data.files || data || [];
+        const gaps = data.gaps || [];
+
+        if ((!Array.isArray(files) || files.length === 0) && gaps.length === 0) {
+          summaryEl.innerHTML = '';
+          tbody.innerHTML = '<tr><td colspan="5" class="p-6 text-center text-warmgray-400">No research files yet. Use <code>/enrich-entity</code> to start building your research base.</td></tr>';
+          return;
+        }
+
+        // Count evidence grades
+        const gradeCounts = { CONFIRMED: 0, SECONDARY: 0, INFERENCE: 0, ASSUMPTION: 0 };
+        files.forEach(f => {
+          const grades = f.evidenceGrades || f.evidence_grades || {};
+          Object.keys(grades).forEach(g => {
+            const key = g.toUpperCase();
+            if (gradeCounts.hasOwnProperty(key)) gradeCounts[key] += grades[g];
+          });
+        });
+
+        // Summary cards
+        const gradeColours = {
+          CONFIRMED: 'text-green-600 dark:text-green-400',
+          SECONDARY: 'text-blue-600 dark:text-blue-400',
+          INFERENCE: 'text-yellow-600 dark:text-yellow-400',
+          ASSUMPTION: 'text-red-500 dark:text-red-400'
+        };
+
+        summaryEl.innerHTML = `
+          <div class="bg-white dark:bg-warmdark-800 rounded-xl border border-cream-300 dark:border-warmdark-700 p-4 text-center">
+            <div class="text-2xl font-bold">${files.length}</div>
+            <div class="text-xs text-warmgray-400 uppercase tracking-wider mt-1">Total Files</div>
+          </div>
+          ${Object.entries(gradeCounts).map(([grade, count]) => `
+            <div class="bg-white dark:bg-warmdark-800 rounded-xl border border-cream-300 dark:border-warmdark-700 p-4 text-center">
+              <div class="text-2xl font-bold ${gradeColours[grade]}">${count}</div>
+              <div class="text-xs text-warmgray-400 uppercase tracking-wider mt-1">${grade}</div>
+            </div>
+          `).join('')}
+        `;
+
+        // Type badge colours
+        function typeBadge(type) {
+          const t = (type || '').toLowerCase();
+          if (t.includes('competitor')) return 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300';
+          if (t.includes('market')) return 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300';
+          if (t.includes('technical')) return 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300';
+          return 'bg-warmgray-100 text-warmgray-500 dark:bg-warmdark-700 dark:text-warmgray-300';
+        }
+
+        // Render files table
+        if (files.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="5" class="p-6 text-center text-warmgray-400">No research files yet.</td></tr>';
+        } else {
+          files.forEach(f => {
+            const row = document.createElement('tr');
+            row.className = 'border-b border-cream-200 dark:border-warmdark-700 hover:bg-cream-100 dark:hover:bg-warmdark-700 transition-colors';
+
+            const grades = f.evidenceGrades || f.evidence_grades || {};
+            const gradeHtml = Object.entries(grades).map(([g, c]) =>
+              `<span class="inline-block px-1.5 py-0.5 rounded text-xs font-medium ${gradeColours[g.toUpperCase()] || ''} bg-cream-100 dark:bg-warmdark-700">${g}: ${c}</span>`
+            ).join(' ');
+
+            row.innerHTML = `
+              <td class="p-3 font-medium font-mono text-xs">${f.file || f.filename || '—'}</td>
+              <td class="p-3">${f.entity || '—'}</td>
+              <td class="p-3"><span class="inline-block px-2 py-0.5 rounded text-xs font-medium ${typeBadge(f.type)}">${f.type || '—'}</span></td>
+              <td class="p-3 text-warmgray-500">${f.lastModified || f.last_modified || '—'}</td>
+              <td class="p-3">${gradeHtml || '—'}</td>
+            `;
+            tbody.appendChild(row);
+          });
+        }
+
+        // Render research gaps
+        if (gaps.length > 0) {
+          gapsSection.classList.remove('hidden');
+          gaps.forEach(gap => {
+            const card = document.createElement('div');
+            card.className = 'bg-white dark:bg-warmdark-800 rounded-lg border border-dashed border-warmgray-300 dark:border-warmdark-600 p-4';
+            card.innerHTML = `
+              <p class="font-medium text-sm">${gap.entity || gap}</p>
+              <p class="text-xs text-warmgray-400 mt-1">${gap.reason || 'Missing research file'}</p>
+            `;
+            gapsGrid.appendChild(card);
+          });
+        }
+
+      } catch (e) {
+        console.warn('Could not load research data:', e.message);
+      }
+    });
+  </script>
+</body>
+</html>

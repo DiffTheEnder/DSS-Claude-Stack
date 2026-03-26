@@ -2,3 +2,21 @@
 .claude/
 *.tmp
 node_modules/
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+*.log
+
+# Generated dashboard data
+dashboard/data/*.json
+
+# Backup files
+*.bak
+*_old.*
+*_backup.*
+
+# Vercel
+.vercel/

@@ -5,11 +5,14 @@
 The dashboard is a static site that reads project markdown/CSV files via `build-data.js` and outputs JSON consumed by browser-side JavaScript.
 
 ```
-research/competitors/*.md  ──┐
-memory/research.md          ├──→  build-data.js  ──→  dashboard/data/*.json
-docs/executive-summary.md   │     (reads files)
-docs/output/status-blurb.md ┘     (outputs JSON)
-{{PIPELINE_SOURCE_OF_TRUTH}} ──→  (optional CSV parsing)
+research/competitors/*.md    ──┐
+memory/research.md            │
+memory/decisions.md           │
+memory/scoring.md             ├──→  build-data.js  ──→  dashboard/data/*.json
+docs/executive-summary.md     │     (reads files)       (overview, entities, competitors,
+docs/output/status-blurb.md   │     (outputs JSON)       decisions, scoring, timeline,
+docs/output/work-log.md       │                          research)
+{{PIPELINE_SOURCE_OF_TRUTH}}  ┘
 ```
 
 ## Source of Truth Rules

@@ -1,0 +1,29 @@
+{
+  "templateVersion": "1.0.0",
+  "projectName": "",
+  "projectSlug": "",
+  "oneLineDescription": "",
+  "goal": "",
+  "team": "",
+  "scope": "",
+  "outOfScope": "",
+  "strategicHypothesis": "",
+  "icpDescription": "",
+  "entityType": "",
+  "entityTypePlural": "",
+  "pipelineSourceOfTruth": "data/entities.csv",
+  "dashboardUrl": "",
+  "modules": {
+    "discovery": true,
+    "pipeline": true,
+    "dashboard": true
+  },
+  "scoringDimensions": [
+    "White Space",
+    "Urgency",
+    "Feasibility",
+    "Defensibility",
+    "Revenue Potential"
+  ],
+  "killConditions": []
+}
