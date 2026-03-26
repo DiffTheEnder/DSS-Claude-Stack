@@ -1,5 +1,6 @@
 # Discovery — Meridian Observability
 
+<!-- DATA FLOW: Pain points are updated by /process-call after each discovery call. The intensity scores and frequency counts here inform the hypothesis review in /critical-reasoning and feed into the executive summary's market opportunity section. -->
 ## Pain Points Identified
 
 ### 1. Observability tool fragmentation
@@ -26,6 +27,7 @@
 - **Evidence:** CloudStack AI spent 3 weeks getting Grafana dashboards configured. Their Head of Platform said: "I wanted to evaluate Honeycomb but I couldn't justify another week of setup when we have product work to ship."
 - **Source:** CloudStack AI call, 20 March 2026
 
+<!-- DATA FLOW: WTP (willingness to pay) signals are extracted from discovery calls by /process-call. These directly inform kill condition #2 ("No WTP signal above $12k/year after 10 interviews") and feed into the pricing section of docs/executive-summary.md. -->
 ## Willingness to Pay (WTP) Signals
 
 ### Signal 1: CloudStack AI — $15-20k/yr range
@@ -49,6 +51,7 @@
 | 3 | 3+ prospects say they'd build in-house rather than buy | PASSING | 3/15 | 0/1 | CloudStack AI explicitly prefers buying. |
 | 4 | Datadog launches a mid-market tier before our target launch date | UNTESTED | Any public announcement | No signal | Monitoring Datadog blog, earnings transcripts, HN, and X. |
 
+<!-- DATA FLOW: The outreach log tracks every touchpoint. /pipeline-update adds entries here whenever a status changes. The pipeline dashboard page gets its data from data/entities.csv (not this log), but this log provides the narrative context that the CSV can't capture. -->
 ## Outreach Log
 
 | Date | Prospect | Channel | Action | Outcome | Next Step |

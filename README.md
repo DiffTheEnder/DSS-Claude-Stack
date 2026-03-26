@@ -35,7 +35,9 @@ claude
 /onboard
 ```
 
-The onboard skill walks you through configuring the project — **Quick Start** (5 questions) or **Full Setup** (13 questions). It generates your `project.config.json`, populates placeholders, and activates the right modules for your project type.
+The onboard skill walks you through configuring the project — **Quick Start** (7 questions) or **Full Setup** (16 questions). It asks about your goals, experience level, and which features you want, then generates your `project.config.json`, populates placeholders, and activates the right modules.
+
+> **New to coding?** See the [Getting Started Guide](docs/getting-started.md) for step-by-step instructions covering installation, setup, and Vercel deployment — no programming knowledge needed.
 
 ---
 
@@ -55,7 +57,7 @@ The onboard skill walks you through configuring the project — **Quick Start** 
 | `/process-call` | Discovery | Post-discovery-call structured processing |
 | `/enrich-entity` | Research | Deep research and dashboard enrichment for an entity |
 | `/synthesise` | Research | Cross-file research synthesis into structured memos |
-| `/critical-reasoning` | Analysis | Stress-test hypotheses with 6 lenses + leader frameworks |
+| `/critical-reasoning` | Analysis | Pressure-test ideas with 4 lenses: truth, consequences, risks, feasibility |
 | `/decision` | Analysis | Record strategic decisions with full rationale |
 | `/compare-options` | Analysis | Score and compare 2–5 strategic options |
 | `/weekly-report` | Reporting | Generate stakeholder-ready weekly summaries |
@@ -120,10 +122,13 @@ The `/onboard` wizard configures the stack based on your project type:
 
 ## Documentation
 
+- **[Getting Started Guide](docs/getting-started.md)** — step-by-step setup for non-technical users (install, configure, deploy)
+- [Dashboard Deployment](dashboard/DEPLOY.md) — quick reference for deploying to Vercel
 - [Executive Summary Template](docs/executive-summary.md) — master hypothesis and strategy memo
 - [Evidence Grading Rules](docs/memos/evidence-grading.md) — how claims are tagged and verified
 - [Skill Authoring Guide](docs/skill-authoring-guide.md) — build your own skills for the stack
 - [Dashboard Architecture](dashboard/CLAUDE.md) — how the dashboard reads, builds, and renders data
+- [Example Project](examples/observability-market-entry/) — fully worked fictional project showing data flow
 
 ---
 

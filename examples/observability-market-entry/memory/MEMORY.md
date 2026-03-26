@@ -16,6 +16,7 @@ Mid-market SaaS companies (200-2000 employees) are paying 2-3x more than they sh
 
 Complete competitor teardowns for Datadog, Grafana Cloud, and Honeycomb. Begin prospect outreach to Tier 1 targets. Process CloudStack AI call notes and extract pain point patterns.
 
+<!-- DATA FLOW: Key Facts are manually maintained here. They provide quick orientation for any session. The /session-start skill reads this file to brief you at the start of each session. These facts should be updated whenever research or discovery produces new findings. -->
 ## Key Facts
 
 1. The global observability market is projected at $45B in 2026, growing 14% YoY — the mid-market segment (~$8.2B) is the fastest-growing sub-segment at 19% YoY [SECONDARY — Gartner 2025 report]
@@ -29,12 +30,14 @@ Complete competitor teardowns for Datadog, Grafana Cloud, and Honeycomb. Begin p
 9. Mid-market SaaS companies typically allocate 3-5% of cloud spend to observability tooling [ASSUMPTION — needs validation in interviews]
 10. Self-serve onboarding (< 30 minutes to first dashboard) is cited as a top-3 purchase criterion by 7/10 prospects we have spoken to informally [PRIMARY — early conversations]
 
+<!-- DATA FLOW: One-liner summaries live here for quick reference. Full decision records with rationale, alternatives, and reversibility ratings live in memory/decisions.md. The dashboard Decisions page reads from memory/decisions.md via build-data.js → decisions.json. -->
 ## Key Decisions
 
 1. **Focus on APM + logs first, defer tracing to v2** (Session 3, 17 March 2026) — Reduces scope and accelerates time to market. Tracing is valuable but less urgent than APM and log management based on early signal. See `memory/decisions.md`.
 2. **Self-serve onboarding, no sales-led motion for initial launch** (Session 4, 19 March 2026) — Shapes product architecture around developer experience rather than enterprise sales. Harder to reverse but aligns with ICP behaviour. See `memory/decisions.md`.
 3. **OpenTelemetry-native from day one, no proprietary agents** (Session 2, 14 March 2026) — Strategic bet on open standards. Reduces lock-in (good for customers) but means we compete on platform value, not data gravity. See `memory/decisions.md`.
 
+<!-- DATA FLOW: Kill conditions flow to multiple places: this table is the quick-reference version. The full evidence tracker lives in memory/discovery.md. The dashboard Overview page reads kill conditions from docs/executive-summary.md via build-data.js → overview.json. All three locations must stay in sync — /session-end checks for this. -->
 ## Kill Condition Tracker
 
 | # | Kill Condition | Status | Evidence |

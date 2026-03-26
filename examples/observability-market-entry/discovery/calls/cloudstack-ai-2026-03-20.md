@@ -1,5 +1,7 @@
 # Call Notes: CloudStack AI
 
+<!-- DATA FLOW: This file was created by /process-call from raw call notes. After creation, /process-call automatically updated: (1) pain point rankings in memory/discovery.md, (2) WTP signals in memory/discovery.md, (3) kill condition evidence in memory/discovery.md, (4) pipeline status in data/entities.csv (CloudStack AI → "Meeting completed"). The Impact Assessment section below feeds into the next /critical-reasoning review. -->
+
 **Date:** 20 March 2026
 **Duration:** 45 minutes
 **Attendees:** Priya (Meridian), Zara (Meridian), Raj Patel — VP Engineering (CloudStack AI)

@@ -15,18 +15,55 @@ Before starting, ask the user which mode they prefer:
 
 > **Quick Start** or **Full Setup**?
 >
-> - **Quick Start** — 5 questions only. I'll auto-fill sensible defaults for everything else. Good if you want to get going fast and fine-tune later.
-> - **Full Setup** — 13 questions across 6 groups. Full control over every setting.
+> - **Quick Start** — 7 questions only. I'll auto-fill sensible defaults for everything else. Good if you want to get going fast and fine-tune later.
+> - **Full Setup** — All questions across all groups. Full control over every setting.
 
 ### Quick Start Mode
 
-Ask only these 5 questions:
+Ask only these 7 questions:
 
 1. **What's the project name?** (e.g., "Immutable Audience — Mobile")
 2. **One-line description** — what is this project about in one sentence? (e.g., "Evaluate the mobile gaming market for audience monetisation opportunities")
 3. **What's the core hypothesis or strategic bet?** (e.g., "Mobile gamers aged 18–30 will pay for premium audience insights if delivered in-app")
 4. **What type of project is this?** — Market entry / Growth strategy / Corporate strategy / Custom
 5. **What's the primary entity you're tracking?** (e.g., "studio", "customer", "partner") — enter "none" to skip the discovery module entirely
+
+6. **What's your main goal?** (Pick one)
+   - **Learning** — I want to explore the template and understand how it works
+   - **Real project** — I have a specific strategy project to run
+   - **Team coordination** — I need a shared workspace for my team's strategy work
+   - **Exploration** — I'm evaluating whether this tool fits my needs
+
+7. **How much structure do you want?**
+   - **Full** — All features: scoring, kill conditions, evidence grading, weekly reports, context snapshots
+   - **Essentials** — Core features: research, pipeline, decisions, dashboard (skip scoring, kill conditions, evidence grading)
+   - **Minimal** — Bare bones: research and notes only (skip pipeline, scoring, kill conditions, dashboard)
+
+#### Goal-based guidance
+
+When goal is **Learning**:
+- Point them to the example project: "Check out `examples/observability-market-entry/` to see what a populated project looks like."
+- Suggest browsing the getting-started guide: "See `docs/getting-started.md` for a walkthrough."
+
+#### Structure-based configuration
+
+When structure is **Full**:
+- Proceed with all defaults as normal.
+
+When structure is **Essentials**:
+- Skip Group 5 (scoring dimensions) and Group 6 (kill conditions)
+- Set default scoring dimensions but don't ask
+- Set kill conditions to empty (can be added later)
+- Remove `/compare-options` from CLAUDE.md skills table reference
+- Set features in `project.config.json`: `scoring: false`, `killConditions: false`, `evidenceGrading: false`, `weeklyReports: true`, `contextSnapshots: true`
+
+When structure is **Minimal**:
+- Skip Groups 3–6 entirely
+- Disable discovery module, pipeline, dashboard, scoring, kill conditions
+- Only keep: `research/`, `memory/MEMORY.md`, `memory/research.md`, `memory/decisions.md`, `docs/`
+- Set features in `project.config.json`: `scoring: false`, `killConditions: false`, `evidenceGrading: false`, `weeklyReports: false`, `contextSnapshots: false`
+
+After auto-filling defaults for **Essentials** or **Minimal**, tell the user: "You can always add more features later by editing `project.config.json` and running `/health-check`."
 
 Then auto-fill defaults:
 - `{{GOAL}}` → "Validate hypothesis and produce a go/no-go recommendation within 8 weeks"
@@ -38,14 +75,14 @@ Then auto-fill defaults:
 - `{{DASHBOARD_URL}}` → "TBD"
 - Scoring dimensions → White Space, Urgency, Feasibility, Defensibility, Revenue Potential
 - Kill conditions → "TBD — define within first week"
-- Discovery module → included unless user answered "none" for entity type
-- Dashboard module → included by default
+- Discovery module → included unless user answered "none" for entity type (or "Minimal" structure)
+- Dashboard module → included by default (unless "Minimal" structure)
 
 After auto-filling, proceed directly to the **Validation / Dry-Run Step**, then continue with replacement.
 
 ### Full Setup Mode
 
-Run the complete question flow below (Group 0 through Group 6).
+Run the complete question flow below (Group 0 through Group 6, including Groups 1A and 3A).
 
 ---
 
@@ -92,6 +129,23 @@ Once all checks pass (or the user acknowledges warnings), proceed to Group 1.
 3. **What's the goal?** — a specific, measurable objective with a deadline (e.g., "Validate product-market fit with 20 customer interviews and a go/no-go recommendation by 30 June 2026")
 4. **Who's on the team?** — names and roles (e.g., "Dhanish (discovery), Sherry & Jeet (product)")
 
+### Group 1A: Goals & Experience
+
+14. **What's your main goal with this project?**
+    - Learning how to run a strategy project
+    - Running a real strategy project with deliverables
+    - Coordinating a team around shared strategic work
+    - Exploring and evaluating this tool
+    (e.g., "Running a real project — we need to decide whether to enter the mobile gaming market by Q3")
+
+15. **How familiar are you with strategy frameworks?**
+    - **New to this** — I haven't used formal strategy tools before
+    - **Some experience** — I've done market research or competitive analysis
+    - **Experienced** — I regularly work with strategic frameworks and hypothesis-driven methods
+
+    If "New to this": onboarding will include extra guidance in template files and suggest starting with the getting-started guide.
+    If "Experienced": standard templates, no extra guidance.
+
 ### Group 2: Strategic Context
 
 5. **What's the scope?** — what's in scope and what's explicitly out of scope? (e.g., In scope: "ANZ mobile gaming studios with >$1M revenue." Out of scope: "Console gaming, studios outside ANZ")
@@ -113,6 +167,23 @@ Once all checks pass (or the user acknowledges warnings), proceed to Group 1.
 10. **Do you have a CSV source-of-truth file yet?** (Yes/path or No)
     - If yes: use that path for `{{PIPELINE_SOURCE_OF_TRUTH}}` (e.g., "data/gaming-studios.csv")
     - If no: default to `data/entities.csv`
+
+### Group 3A: Feature Selection
+
+16. **Which features do you want to use?** (You can always enable more later)
+
+    | Feature | What it does | Default |
+    |---------|-------------|---------|
+    | Scoring matrix | Score and compare strategic options on custom dimensions | On |
+    | Kill conditions | Define falsifiable thresholds that signal when to stop or pivot | On |
+    | Evidence grading | Tag every claim with [CONFIRMED], [SECONDARY], [INFERENCE], or [ASSUMPTION] | On |
+    | Weekly reports | Generate periodic stakeholder summaries via `/weekly-report` | On |
+    | Context snapshots | Pre-computed summaries for fast session loading | On |
+    | Discovery pipeline | Track outreach, calls, and entity status | Based on Q9 |
+    | Dashboard | Live web dashboard deployed to Vercel | Based on Q11 |
+
+    Ask: "Are there any features you'd like to turn OFF? (Enter numbers, or 'all on' to keep defaults)"
+    (e.g., "Turn off scoring and weekly reports — we're just doing research for now")
 
 ### Group 4: Dashboard & Deployment
 
@@ -163,6 +234,9 @@ After all answers are collected (whether via Quick Start or Full Setup) but **be
 > | `{{DATE}}` | _today's date_ |
 > | **Modules included** | discovery: yes/no, dashboard: yes/no |
 > | **Kill conditions** | _listed_ |
+> | **Goal** | _{answer from Q14 or Quick Start Q6}_ |
+> | **Experience level** | _{answer from Q15, or "Not asked" if Quick Start}_ |
+> | **Features disabled** | _{list of disabled features, or "None"}_ |
 >
 > **Proceed?** (Yes / Edit a value / Start over)
 
@@ -201,9 +275,18 @@ Once the user confirms and all answers are finalised:
    - If no discovery: delete `discovery/`, `memory/discovery.md`, `context/pipeline-state.md`, `dashboard/pipeline.html`, `skills/pipeline-update/`, `skills/outreach-sequence/`, `.claude/agents/discovery-strategist.md`, `.claude/agents/gtm-specialist.md`
    - If no dashboard: delete `dashboard/`
 
-4. **Remove remaining `{{PLACEHOLDER}}` markers** — scan all files for any unreplaced `{{` patterns and either fill them with sensible defaults or flag them for the user.
+4. **Apply feature-level removals** based on Q16 (Full Setup) or structure selection (Quick Start):
 
-### Step 4.5: Generate Sample Entity CSV
+   - **Scoring off**: Skip Group 5, remove `memory/scoring.md`, remove `dashboard/scoring.html`, skip `/compare-options` skill mention in CLAUDE.md skills table
+   - **Kill conditions off**: Skip Group 6, remove kill condition sections from template files (leave the table headers but mark as "Not configured — enable kill conditions in project.config.json to use this feature")
+   - **Evidence grading off**: Add a note to CLAUDE.md: "Evidence grading is disabled for this project. Claims are not tagged with confidence grades."
+   - **Weekly reports off**: Remove `/weekly-report` skill reference
+   - **Context snapshots off**: Remove `context/` directory, update CLAUDE.md to note snapshots are disabled
+   - **Minimal mode**: Removes `discovery/`, `dashboard/`, pipeline skills, scoring, kill conditions, evidence grading, weekly reports, context snapshots — keeps only `research/`, `memory/` (MEMORY.md, research.md, decisions.md), `docs/`, and basic skills (onboard, session-start, session-end, health-check, enrich-entity, critical-reasoning, decision, synthesise)
+
+5. **Remove remaining `{{PLACEHOLDER}}` markers** — scan all files for any unreplaced `{{` patterns and either fill them with sensible defaults or flag them for the user.
+
+### Step 5.5: Generate Sample Entity CSV
 
 If the discovery module is active and no existing CSV was provided (Q10 = No), create `data/entities.csv` with the correct headers and 2 example rows so the user can see the expected format:
 
@@ -215,7 +298,7 @@ Demo Inc,demo-inc,Not started,Tier 3,Adjacent,,Initial research,Web,Added as exa
 
 Ensure the `data/` directory exists before writing the file.
 
-### Step 4.6: Generate project.config.json
+### Step 5.6: Generate project.config.json
 
 Write the project configuration to `project.config.json` at the repo root using the collected answers. Follow this schema:
 
@@ -240,18 +323,25 @@ Write the project configuration to `project.config.json` at the repo root using 
     "pipeline": true/false,
     "dashboard": true/false
   },
+  "features": {
+    "scoring": true/false,
+    "killConditions": true/false,
+    "evidenceGrading": true/false,
+    "weeklyReports": true/false,
+    "contextSnapshots": true/false
+  },
   "scoringDimensions": ["<Q12 dimensions>"],
   "killConditions": ["<Q13 conditions>"]
 }
 ```
 
-5. **Run verification**:
+6. **Run verification**:
    ```bash
    grep -r "{{" --include="*.md" --include="*.js" --include="*.html" .
    ```
    Should return zero results (all placeholders replaced).
 
-### Step 5.5: Transform README
+### Step 6.5: Transform README
 
 After verification, replace the open-source template README with a project-instance README. Generate a new `README.md` at the repo root containing:
 
@@ -272,14 +362,15 @@ After verification, replace the open-source template README with a project-insta
 
 Do **not** include template-level instructions, contribution guidelines, or licence information from the original README — this is now a project-specific document.
 
-6. **Rebuild dashboard** (if kept):
+7. **Rebuild dashboard** (if kept):
    ```bash
    cd dashboard && npm install && node build-data.js
    ```
 
-7. **Report completion** to the user with:
+8. **Report completion** to the user with:
    - Summary of all values set
    - List of modules included/excluded
+   - List of features enabled/disabled
    - Files generated (entity CSV, project.config.json, README)
    - Suggested first actions (e.g., "Start with competitor research", "Define your first 10 targets")
 

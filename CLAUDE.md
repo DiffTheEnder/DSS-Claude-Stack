@@ -119,7 +119,7 @@ Evidence grading rules: `docs/memos/evidence-grading.md`
 | `/process-call` | Discovery | Post-discovery-call structured processing |
 | `/enrich-entity` | Research | Deep research and dashboard enrichment for an entity |
 | `/synthesise` | Research | Cross-file research synthesis into structured memos |
-| `/critical-reasoning` | Analysis | Stress-test hypotheses with 6 lenses + leader frameworks |
+| `/critical-reasoning` | Analysis | Pressure-test ideas with 4 lenses: truth, consequences, risks, feasibility |
 | `/decision` | Analysis | Record strategic decisions with full rationale |
 | `/compare-options` | Analysis | Score and compare 2–5 strategic options |
 | `/weekly-report` | Reporting | Generate stakeholder-ready weekly summaries |
