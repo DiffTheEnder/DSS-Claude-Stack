@@ -53,6 +53,7 @@ function renderSidebar() {
       </a>
     </nav>
     <div style="padding: 0.75rem; border-top: 1px solid rgba(255,248,240,0.06);">
+      <div id="build-freshness" style="padding: 0 0.5rem 0.5rem; font-size: 0.7rem; opacity: 0.5;"></div>
       <button id="dark-toggle" class="nav-link" style="width:100%; border:none; background:none; cursor:pointer">
         <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 1a7 7 0 100 14 5 5 0 010-10"/></svg>
         Toggle Theme

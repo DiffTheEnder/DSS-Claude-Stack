@@ -1,3 +1,6 @@
+// @ts-check
+'use strict';
+
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
@@ -5,7 +8,7 @@ const { askQuestions } = require('./prompts');
 const { scaffold } = require('./scaffold');
 
 async function main(nameArg) {
-  console.log('\n  DS Strategy Stack\n');
+  console.log('\n  DS Strategy Stack — Your Project\'s Second Brain\n');
 
   const answers = await askQuestions(nameArg);
 
@@ -30,41 +33,42 @@ async function main(nameArg) {
 
   console.log(`\n  Creating project in ${targetDir}\n`);
 
-  const { modules } = scaffold(targetDir, templateDir, {
-    projectName: answers.projectName,
-    projectType: answers.projectType,
-    structure: answers.structure,
-  });
-
-  // Git init
   try {
-    execSync('git init', { cwd: targetDir, stdio: 'ignore' });
-    execSync('git add -A', { cwd: targetDir, stdio: 'ignore' });
-    execSync('git commit -m "Initial project from DS Strategy Stack"', {
-      cwd: targetDir,
-      stdio: 'ignore',
+    const { modules } = scaffold(targetDir, templateDir, {
+      projectName: answers.projectName,
+      projectType: answers.projectType,
+      structure: answers.structure,
     });
-    console.log('  ✓ Git repository initialised');
-  } catch {
-    console.log('  ⚠ Could not initialise git — you can do this manually');
-  }
 
-  // Install dashboard dependencies
-  if (modules.dashboard && fs.existsSync(path.join(targetDir, 'dashboard', 'package.json'))) {
-    console.log('  ⏳ Installing dashboard dependencies...');
+    // Git init
     try {
-      execSync('npm install', {
-        cwd: path.join(targetDir, 'dashboard'),
+      execSync('git init', { cwd: targetDir, stdio: 'ignore' });
+      execSync('git add -A', { cwd: targetDir, stdio: 'ignore' });
+      execSync('git commit -m "Initial project from DS Strategy Stack"', {
+        cwd: targetDir,
         stdio: 'ignore',
       });
-      console.log('  ✓ Dashboard dependencies installed');
-    } catch {
-      console.log('  ⚠ Could not install dashboard deps — run "cd dashboard && npm install" manually');
+      console.log('  \u2713 Git repository initialised');
+    } catch (_e) {
+      console.log('  \u26A0 Could not initialise git \u2014 you can do this manually');
     }
-  }
 
-  console.log(`
-  ✅ Project created!
+    // Install dashboard dependencies
+    if (modules.dashboard && fs.existsSync(path.join(targetDir, 'dashboard', 'package.json'))) {
+      console.log('  \u23F3 Installing dashboard dependencies...');
+      try {
+        execSync('npm install', {
+          cwd: path.join(targetDir, 'dashboard'),
+          stdio: 'ignore',
+        });
+        console.log('  \u2713 Dashboard dependencies installed');
+      } catch (_e) {
+        console.log('  \u26A0 Could not install dashboard deps \u2014 run "cd dashboard && npm install" manually');
+      }
+    }
+
+    console.log(`
+  \u2705 Project created!
 
   Next steps:
 
@@ -75,6 +79,10 @@ async function main(nameArg) {
   The /onboard skill will walk you through configuring
   your hypothesis, scoring dimensions, and kill conditions.
 `);
+  } catch (err) {
+    console.error(`\n  Error: ${err.message}\n`);
+    process.exit(1);
+  }
 }
 
 module.exports = { main };

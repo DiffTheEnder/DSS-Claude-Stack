@@ -5,6 +5,8 @@ description: Run a project integrity audit. Checks for unreplaced placeholders, 
 
 # Health Check
 
+> **Evidence grading**: Check `project.config.json` → `features.evidenceGrading`. If `false`, skip Check 7 (Evidence Grading Coverage).
+
 Run a comprehensive integrity audit of the project. Use this after onboarding, periodically during a project, or when something feels off.
 
 ---

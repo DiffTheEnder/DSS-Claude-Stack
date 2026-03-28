@@ -25,3 +25,9 @@ jobs:
           # Check only the generated dashboard JSON files for leftover placeholders
           chmod +x scripts/validate-placeholders.sh
           scripts/validate-placeholders.sh dashboard/data
+
+      - name: Check context snapshot freshness (advisory)
+        continue-on-error: true
+        run: |
+          chmod +x scripts/check-snapshot-freshness.sh
+          scripts/check-snapshot-freshness.sh

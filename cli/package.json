@@ -1,6 +1,6 @@
 {
   "name": "create-dss-project",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Scaffold a DS Strategy Stack project for Claude Code",
   "bin": {
     "create-dss-project": "./bin/create-dss-project.js"
@@ -24,7 +24,13 @@
   "engines": {
     "node": ">=16.7.0"
   },
+  "scripts": {
+    "test": "jest --verbose"
+  },
   "dependencies": {
     "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }

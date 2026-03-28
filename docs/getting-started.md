@@ -6,7 +6,7 @@ This guide walks you through everything from scratch. No coding experience neede
 
 ## What Is This?
 
-The **DS Strategy Stack** is a pre-built workspace that helps you run corporate projects — market research, competitor analysis, internal implementations, vendor evaluations, due diligence, or any project that needs structured thinking and decision-making.
+The **DS Strategy Stack** is your project's **second brain** — a pre-built workspace that remembers everything about your project (research, decisions, discovery calls, competitor intel) so nothing gets lost across sessions or team members.
 
 It works with **Claude Code**, an AI assistant that lives in your terminal (the text-based interface on your computer). You talk to Claude, and it helps you:
 - Organise your research into structured files
@@ -14,7 +14,7 @@ It works with **Claude Code**, an AI assistant that lives in your terminal (the 
 - Make evidence-based decisions
 - Generate a live dashboard showing your project's progress
 
-Think of it like a strategy consulting toolkit that an AI helps you run.
+Because Claude reads from the project's memory files every session, it always knows where you left off — like having a strategy consultant with perfect recall.
 
 ---
 

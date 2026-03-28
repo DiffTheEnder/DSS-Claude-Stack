@@ -24,3 +24,6 @@ dashboard/data/*.json
 
 # CLI template build output
 cli/template/
+
+# Root lock file (subpackages have their own)
+/package-lock.json

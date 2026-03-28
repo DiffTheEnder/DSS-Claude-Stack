@@ -280,7 +280,7 @@ Only proceed with file modifications once the user confirms.
 
 Once the user confirms and all answers are finalised:
 
-1. **Search and replace all `{{PLACEHOLDER}}` values** across every file in the project:
+1. **Search and replace all `{{PLACEHOLDER}}` values** across every file in the project, **including `CLAUDE.md` at the project root** (which contains placeholders like `{{PROJECT_NAME}}`, `{{PIPELINE_SOURCE_OF_TRUTH}}`, etc.):
    - `{{PROJECT_NAME}}` → answer to Q1
    - `{{PROJECT_SLUG}}` → lowercase, hyphenated version of Q1
    - `{{ONE_LINE_DESCRIPTION}}` → Q2

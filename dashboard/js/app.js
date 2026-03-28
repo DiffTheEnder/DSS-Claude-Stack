@@ -36,7 +36,7 @@ function initSidebar() {
   }
 }
 
-// Highlight active nav
+// Highlight active nav and load freshness indicator
 function initNav() {
   const page = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(link => {
@@ -44,6 +44,34 @@ function initNav() {
       link.classList.add('active');
     }
   });
+  initBuildFreshness();
+}
+
+// Build freshness indicator
+async function initBuildFreshness() {
+  try {
+    const meta = await loadJSON('meta.json');
+    const el = document.getElementById('build-freshness');
+    if (el && meta.buildTimestamp) {
+      const built = new Date(meta.buildTimestamp);
+      const ago = formatTimeAgo(built);
+      el.textContent = `Last built: ${ago}`;
+      el.title = built.toLocaleString();
+    }
+  } catch (_e) {
+    // meta.json may not exist in older builds
+  }
+}
+
+function formatTimeAgo(date) {
+  const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+  if (seconds < 60) return 'just now';
+  const minutes = Math.floor(seconds / 60);
+  if (minutes < 60) return `${minutes}m ago`;
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return `${hours}h ago`;
+  const days = Math.floor(hours / 24);
+  return `${days}d ago`;
 }
 
 // Kill condition status to CSS class

@@ -1,25 +1,33 @@
 # DS Strategy Stack (Claude Code)
 
-> An open-source, AI-powered strategy and project management stack for Claude Code. Clone it, run `/onboard`, and start doing real work — market entry, competitor research, internal implementations, due diligence, or any corporate project that needs structured thinking.
+> **Your project's second brain.** An open-source strategy framework for Claude Code that remembers everything — research, decisions, discovery calls, competitor intel, and strategic context — so nothing gets lost across sessions, conversations, or team members.
 
 [![MIT Licence](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE)
 
 ---
 
-## What Is This?
+## Why a "Second Brain"?
 
-A complete strategy project framework that runs inside [Claude Code](https://claude.ai/code). It gives you:
+Strategy projects generate enormous amounts of context: call notes, competitor research, market sizing, scoring matrices, executive memos. Most of it lives in someone's head or scattered across docs that nobody reads twice.
 
-- **14 skills** that automate strategy workflows (research, discovery, analysis, reporting)
-- **A live dashboard** (Vercel-deployable) showing kill conditions, pipeline, competitors, decisions, and more
-- **A memory layer** that persists strategic context across sessions
-- **Multi-agent coordination** so multiple Claude instances can work on the same project
-- **Evidence grading** on every claim — `[CONFIRMED]`, `[SECONDARY]`, `[INFERENCE]`, `[ASSUMPTION]`
-- **Kill condition tracking** — falsifiable thresholds that tell you when to stop or pivot
+The DS Strategy Stack solves this by giving your project a **persistent memory layer** that Claude reads and writes to automatically. Every research finding, every decision rationale, every discovery call insight is captured in structured files that Claude loads on demand. When you start a new session, Claude doesn't start from scratch — it picks up exactly where you left off.
+
+**How the second brain works:**
+
+- **Memory files** (`memory/`) — persistent storage for research, discovery, decisions, and scoring. Updated by skills automatically.
+- **Context snapshots** (`context/`) — pre-computed summaries that Claude loads instantly. Three loading modes (Fast, Standard, Deep) so you only pay for the context you need.
+- **Evidence grading** — every claim is tagged `[CONFIRMED]`, `[SECONDARY]`, `[INFERENCE]`, or `[ASSUMPTION]`. The brain doesn't just remember — it remembers *how confident it is*.
+- **Kill condition tracking** — falsifiable thresholds that tell you when to stop or pivot. The brain watches for signals that challenge your hypothesis.
 
 No boilerplate. No blank-page problem. Clone, configure, and go.
 
 ![Dashboard Screenshot](dashboard/screenshot.png)
+
+---
+
+## New here?
+
+**[Read the Getting Started Guide](docs/getting-started.md)** — a step-by-step walkthrough covering installation, configuration, and Vercel deployment. No programming knowledge needed.
 
 ---
 
@@ -45,9 +53,7 @@ claude
 /onboard
 ```
 
-Both paths end at `/onboard`, which walks you through the full configuration — **Quick Start** (7 questions) or **Full Setup** (16 questions). It asks about your goals, experience level, and which features you want, then generates your `project.config.json`, populates placeholders, and activates the right modules.
-
-> **New to coding?** See the [Getting Started Guide](docs/getting-started.md) for step-by-step instructions covering installation, setup, and Vercel deployment — no programming knowledge needed.
+Both paths end at `/onboard`, which walks you through the full configuration — **Quick Start** (7 questions) or **Full Setup** (16 questions). It configures your goals, hypothesis, scoring dimensions, and kill conditions, then generates your `project.config.json` and activates the right modules.
 
 ---
 
@@ -77,15 +83,32 @@ Both paths end at `/onboard`, which walks you through the full configuration —
 - **7 pages**: Overview, Pipeline, Competitors, Decisions, Scoring, Timeline, Research Hub
 - Warm cream/teal editorial design with dark mode
 - Auto-rebuilds from markdown/CSV source files
+- **Build freshness indicator** — see when data was last rebuilt
 - Deploys to Vercel on push
 
 > **Note:** The dashboard is intentionally a simple starting point — a 101-level view of your project. Every project is different, so we'd encourage you to add custom pages, new data flows, and visualisations that fit your specific context. The [Skill Authoring Guide](docs/skill-authoring-guide.md) and [Dashboard Architecture](dashboard/CLAUDE.md) docs explain how to extend both the skills and the dashboard. Ask Claude to help — "add a new dashboard page that shows X" works great.
 
-### Memory & Context System
+### The Memory Layer — Your Project's Second Brain
 
-- **5 persistent memory files** tracking research, discovery, decisions, and scoring
-- **4 pre-computed context snapshots** for fast session loading
-- **Three loading modes**: Fast, Standard, Deep — so you only load what you need
+The memory system is what makes this more than a template. It's how Claude retains and retrieves knowledge across sessions:
+
+| File | What it remembers |
+|------|-------------------|
+| `memory/MEMORY.md` | Project priorities, status, and team context |
+| `memory/research.md` | Competitor capability map and market findings |
+| `memory/discovery.md` | Call log, pain points, willingness-to-pay signals |
+| `memory/decisions.md` | Every strategic decision with full rationale |
+| `memory/scoring.md` | Option scoring matrix with evidence-backed scores |
+
+**Context snapshots** (`context/`) are pre-computed summaries built from these raw files. Claude loads snapshots for fast orientation, then dives into raw files when it needs the full picture.
+
+**Three loading modes** control how much context Claude reads:
+
+| Mode | When | What loads |
+|------|------|------------|
+| **Fast** | Pipeline updates, scheduling, housekeeping | Snapshot only |
+| **Standard** | Research, competitor analysis, entity enrichment | Snapshot + targeted raw files |
+| **Deep** | Hypothesis review, critical reasoning, strategic decisions | Snapshots + ALL raw evidence |
 
 ---
 
@@ -96,7 +119,7 @@ my-project/
 ├── CLAUDE.md                 # Agent instructions & context loading rules
 ├── STATUS.md                 # Multi-agent coordination board
 ├── project.config.json       # Project configuration (generated by /onboard)
-├── memory/                   # Persistent strategic memory
+├── memory/                   # The second brain — persistent strategic memory
 ├── context/                  # Pre-computed snapshots for fast loading
 ├── templates/                # Standard formats (call-prep, call-notes, entity-teardown)
 ├── research/                 # Raw research files (competitors, market, technical)
@@ -105,7 +128,7 @@ my-project/
 ├── skills/                   # Project-level Claude Code skills
 ├── dashboard/                # Live web dashboard (Vercel-deployed)
 ├── docs/                     # Executive summary, memos, reports
-└── scripts/                  # Utility scripts
+└── scripts/                  # Utility scripts (health check, upgrade, validation)
 ```
 
 ---
@@ -168,6 +191,18 @@ The `/onboard` wizard configures the stack based on your project type:
 | Business Case | No | No | Optional | Building a case for investment or change |
 | Transformation / Change | Yes | Yes | Yes | Organisational or process transformation |
 | Custom | Choose | Choose | Choose | Anything else |
+
+### Structure Levels
+
+Not every project needs everything. Choose your structure level during setup:
+
+| Level | What you get |
+|-------|-------------|
+| **Full** | All features: scoring, kill conditions, evidence grading, weekly reports, context snapshots |
+| **Essentials** | Core features: research, pipeline, decisions, dashboard |
+| **Minimal** | Bare bones: research and notes only |
+
+Started with Minimal and need more? Run `bash scripts/upgrade-structure.sh full` to add the missing directories and files.
 
 ---
 

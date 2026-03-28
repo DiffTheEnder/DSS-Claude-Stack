@@ -1,3 +1,6 @@
+// @ts-check
+'use strict';
+
 const prompts = require('prompts');
 const { PROJECT_TYPES } = require('./project-types');
 

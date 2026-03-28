@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0] — 2026-03-29
+
+### Added
+- ESLint + Prettier configuration for code style enforcement
+- Jest test suites for CLI scaffolder (14 tests) and dashboard builders (12 tests)
+- Modularized dashboard build system — `build-data.js` split into per-page builders in `dashboard/builders/`
+- Dashboard build freshness indicator showing "Last built: X" in sidebar
+- Snapshot freshness check script (`scripts/check-snapshot-freshness.sh`)
+- Structure upgrade script (`scripts/upgrade-structure.sh`) for upgrading Minimal/Essentials to Full
+- JSDoc type annotations and `@ts-check` across CLI and dashboard source files
+- CI now runs tests on pull requests and checks snapshot freshness on push
+
+### Changed
+- README rewritten with "second brain" positioning — explains how the memory layer, context snapshots, and evidence grading work together
+- Getting Started guide promoted more prominently in README
+- CLI scaffolder now validates inputs (project name, type, structure) before copying files
+- CLI scaffolder cleans up partial directory on failure
+- Skills that use evidence grading (`enrich-entity`, `process-call`, `synthesise`, `health-check`, `critical-reasoning`) now respect the `features.evidenceGrading` flag in `project.config.json`
+- `/onboard` skill now explicitly includes CLAUDE.md in placeholder replacement
+
+### Fixed
+- Evidence grading feature flag was ignored by skills — now conditionally applied
+
 ## [1.2.0] — 2026-03-26
 
 ### Added

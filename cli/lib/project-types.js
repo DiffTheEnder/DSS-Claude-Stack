@@ -1,3 +1,7 @@
+// @ts-check
+'use strict';
+
+/** @type {Object<string, {label: string, description: string, discovery: boolean, pipeline: boolean, dashboard: boolean, entityType: string, scoringDimensions: string[]}>} */
 const PROJECT_TYPES = {
   'market-entry': {
     label: 'Market Entry',

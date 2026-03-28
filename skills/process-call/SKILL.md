@@ -5,6 +5,8 @@ description: Use after a discovery or stakeholder call to process raw notes into
 
 # Process Call
 
+> **Evidence grading**: Before applying evidence tags (`[CONFIRMED]`, `[SECONDARY]`, etc.), check `project.config.json` → `features.evidenceGrading`. If `false`, skip evidence tagging steps.
+
 **Rigid skill** — execute ALL steps in order. Do not skip steps or ask whether to proceed.
 
 Use this after any discovery, intel, or stakeholder call to transform raw notes into structured project data.

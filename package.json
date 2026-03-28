@@ -1,0 +1,19 @@
+{
+  "name": "dss-claude-stack",
+  "version": "1.2.0",
+  "private": true,
+  "description": "DS Strategy Stack — an AI-powered strategy project framework for Claude Code",
+  "scripts": {
+    "lint": "eslint cli/lib/ dashboard/build-data.js dashboard/builders/",
+    "lint:fix": "eslint --fix cli/lib/ dashboard/build-data.js dashboard/builders/",
+    "format": "prettier --write \"cli/lib/**/*.js\" \"dashboard/**/*.js\" \"!dashboard/node_modules/**\"",
+    "format:check": "prettier --check \"cli/lib/**/*.js\" \"dashboard/**/*.js\" \"!dashboard/node_modules/**\"",
+    "test": "npm test --prefix cli && npm test --prefix dashboard",
+    "test:cli": "npm test --prefix cli",
+    "test:dashboard": "npm test --prefix dashboard"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.0"
+  }
+}

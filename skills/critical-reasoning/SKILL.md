@@ -5,6 +5,8 @@ description: Pressure-test any idea, strategy, decision, or plan. Use when you w
 
 # Critical Reasoning
 
+> **Evidence grading**: Before applying evidence tags (`[CONFIRMED]`, `[SECONDARY]`, etc.), check `project.config.json` → `features.evidenceGrading`. If `false`, skip evidence grade requirements but still assess evidence strength in prose.
+
 Pressure-test an idea, strategy, decision, or plan before committing to it. This skill helps you find what you might be missing.
 
 **When to use**: Before making a decision, after forming a hypothesis, when something feels too good to be true, or when you want a second opinion on your thinking.

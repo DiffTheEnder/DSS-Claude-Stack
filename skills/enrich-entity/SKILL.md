@@ -5,6 +5,8 @@ description: Produce complete enrichment for a {{ENTITY_TYPE}} so it appears ful
 
 # Enrich Entity
 
+> **Evidence grading**: Before applying evidence tags (`[CONFIRMED]`, `[SECONDARY]`, etc.), check `project.config.json` → `features.evidenceGrading`. If `false`, skip evidence tagging and grade distribution sections.
+
 Produce complete enrichment for a {{ENTITY_TYPE}} so it appears fully populated in the dashboard grid. Empty columns in the capability map mean either the research files are missing or the map hasn't been updated.
 
 ---

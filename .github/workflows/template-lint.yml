@@ -50,6 +50,17 @@ jobs:
 
           exit $EXIT_CODE
 
+      - name: Set up Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Run CLI tests
+        run: cd cli && npm install && npm test
+
+      - name: Run dashboard tests
+        run: cd dashboard && npm install && npm test
+
       - name: Check markdown for unclosed code blocks
         run: |
           # Verify all markdown files have balanced ``` fences

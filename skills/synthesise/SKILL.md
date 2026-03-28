@@ -5,6 +5,8 @@ description: Synthesise research across multiple raw files into a structured mem
 
 # Synthesise
 
+> **Evidence grading**: Before applying evidence tags (`[CONFIRMED]`, `[SECONDARY]`, etc.), check `project.config.json` → `features.evidenceGrading`. If `false`, skip evidence tagging and grade distribution sections.
+
 Transform scattered raw research into a structured, evidence-graded synthesis memo.
 
 ---
