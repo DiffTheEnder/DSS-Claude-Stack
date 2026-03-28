@@ -120,7 +120,11 @@ GitHub is where your project lives online. You'll need it for:
 
 ## Step 7: Deploy Your Dashboard (Optional)
 
-Your project includes a live dashboard that shows your research, pipeline, and strategic progress as a website. Here's how to put it online:
+Your project includes a live dashboard that shows your research, pipeline, and strategic progress as a website.
+
+**Important:** The dashboard is a simple starting point — think of it as a 101-level view. Every project is different, so you should customise it as you go. Add new pages, create new data flows from your research to the dashboard, or build visualisations that make sense for your specific project. You can ask Claude to help — for example, "add a new dashboard page that shows our market sizing data" or "create a chart comparing vendor scores." The dashboard is yours to extend.
+
+Here's how to put it online:
 
 ### Create a Vercel Account
 1. Go to https://vercel.com

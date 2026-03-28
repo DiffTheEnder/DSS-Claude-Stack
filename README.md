@@ -79,6 +79,8 @@ Both paths end at `/onboard`, which walks you through the full configuration —
 - Auto-rebuilds from markdown/CSV source files
 - Deploys to Vercel on push
 
+> **Note:** The dashboard is intentionally a simple starting point — a 101-level view of your project. Every project is different, so we'd encourage you to add custom pages, new data flows, and visualisations that fit your specific context. The [Skill Authoring Guide](docs/skill-authoring-guide.md) and [Dashboard Architecture](dashboard/CLAUDE.md) docs explain how to extend both the skills and the dashboard. Ask Claude to help — "add a new dashboard page that shows X" works great.
+
 ### Memory & Context System
 
 - **5 persistent memory files** tracking research, discovery, decisions, and scoring
