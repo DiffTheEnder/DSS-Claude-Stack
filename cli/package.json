@@ -1,6 +1,6 @@
 {
   "name": "create-dss-project",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Scaffold a DS Strategy Stack project for Claude Code",
   "bin": {
     "create-dss-project": "./bin/create-dss-project.js"

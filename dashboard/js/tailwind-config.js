@@ -44,7 +44,7 @@ tailwind.config = {
       },
       fontFamily: {
         sans: ['DM Sans', 'system-ui', 'sans-serif'],
-        serif: ['Instrument Serif', 'Georgia', 'serif'],
+        serif: ['Space Grotesk', 'system-ui', 'sans-serif'],
         syne: ['Syne', 'sans-serif'],
       }
     }
